@@ -20,6 +20,7 @@ export default function SearchForm(props) {
                   type='text' placeholder='Name'
                 />
               </label>
+              <button type='submit'>Submit</button>
             </div>
           </Form>
         )

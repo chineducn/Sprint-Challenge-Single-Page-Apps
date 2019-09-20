@@ -3,10 +3,20 @@ import messenger from 'axios';
 import CharacterCard from "./CharacterCard";
 import tailored from 'styled-components';
 import SearchForm from './SearchForm';
+import { Formik } from 'formik';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
   const [charactersState, setCharacters] = useState([]);
+  // const [searchState, setSearch] = useState('');
+  const initialSearch = '';
+
+  const performSearch = (formValues, actions) => {
+    console.log(formValues)
+    setCharacters(charactersState.filter(character => character.name === formValues.name))
+    actions.resetForm();
+  }
+
   const CoolSection = tailored.section`
    display: flex;
    justify-content: space-around;
@@ -31,7 +41,10 @@ export default function CharacterList(props) {
 
   return (
     <>
-      <SearchForm />
+      <SearchForm
+        initialValues={initialSearch}
+        onSubmit={performSearch}
+      />
       <CoolSection className="character-list">
         {
           charactersState.map(character =>
