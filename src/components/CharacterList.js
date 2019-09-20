@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from "react";
+import messenger from 'axios';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
-  const { charactersArray } = props
+  const [charactersState, setCharacters] = useState([]);
+  console.log(charactersState);
+
+  const rickandmortyCharacterApi = 'https://rickandmortyapi.com/api/character';
+    
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+
+    messenger.get(rickandmortyCharacterApi)
+      .then(yesPlease => {
+        setCharacters(yesPlease.data.results);
+        // debugger
+      })
+      .catch(hellNo => {
+
+      })
+
   }, []);
 
   return (
