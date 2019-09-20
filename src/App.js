@@ -5,23 +5,25 @@ import Axios from "axios";
 
 export default function App() {
 
-  const [charactersState, setCharacters] = useState([]);
-  console.log(charactersState);
+  // const [charactersState, setCharacters] = useState([]);
+  // console.log(charactersState);
 
-  useEffect(() => {
+  // const rickandmortyCharacterApi = 'https://rickandmortyapi.com/api/character';
 
-    Axios.get('https://rickandmortyapi.com/api/character')
-      .then(yesPlease => {
-        setCharacters(yesPlease.data.results);
-      // debugger
-      })
-      .catch(hellNo => {
-        
-      })
-    
-    }
-    , []
-  );
+  // useEffect(() => {
+
+  //   Axios.get(rickandmortyCharacterApi)
+  //     .then(yesPlease => {
+  //       setCharacters(yesPlease.data.results);
+  //       // debugger
+  //     })
+  //     .catch(hellNo => {
+
+  //     })
+
+  // }
+  //   , []
+  // );
 
   return (
     <main>
