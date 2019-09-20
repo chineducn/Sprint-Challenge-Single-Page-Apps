@@ -5,6 +5,10 @@ export default function CharacterCard(props) {
 
   const { name, gender, species, url } = props;
   const CoolDiv = tailored.div`
+    border: 0.1rem solid;
+    margin: 0.2rem;
+    padding: 0.2rem;
+
     p {
       font-size: 1rem;
       span {

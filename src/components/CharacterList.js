@@ -8,12 +8,13 @@ export default function CharacterList(props) {
   const [charactersState, setCharacters] = useState([]);
   const CoolSection = tailored.section`
    display: flex;
+   justify-content: space-around;
    flex-wrap: wrap;
   `;
- 
+
 
   const rickandmortyCharacterApi = 'https://rickandmortyapi.com/api/character';
-    
+
   useEffect(() => {
 
     messenger.get(rickandmortyCharacterApi)
@@ -30,7 +31,7 @@ export default function CharacterList(props) {
   return (
     <CoolSection className="character-list">
       {
-        charactersState.map(character => 
+        charactersState.map(character =>
           <CharacterCard
             key={character.id}
             name={character.name}
