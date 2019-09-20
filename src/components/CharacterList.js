@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import messenger from 'axios';
+import CharacterCard from "./CharacterCard";
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
@@ -23,7 +24,17 @@ export default function CharacterList(props) {
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {
+        charactersState.map(character => 
+          <CharacterCard
+            key={character.id}
+            name={character.name}
+            gender={character.gender}
+            species={character.species}
+            url={character.url}
+          />
+        )
+      }
     </section>
   );
 }

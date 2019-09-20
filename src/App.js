@@ -29,6 +29,7 @@ export default function App() {
   return (
     <main>
       <Header />
+      <CharacterList />
     </main>
   );
 }
