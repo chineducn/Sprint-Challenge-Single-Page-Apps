@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import messenger from 'axios';
 import CharacterCard from "./CharacterCard";
+import tailored from 'styled-components';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
   const [charactersState, setCharacters] = useState([]);
-  console.log(charactersState);
+  const CoolSection = tailored.section`
+   display: flex;
+   flex-wrap: wrap;
+  `;
+ 
 
   const rickandmortyCharacterApi = 'https://rickandmortyapi.com/api/character';
     
@@ -23,7 +28,7 @@ export default function CharacterList(props) {
   }, []);
 
   return (
-    <section className="character-list">
+    <CoolSection className="character-list">
       {
         charactersState.map(character => 
           <CharacterCard
@@ -35,6 +40,6 @@ export default function CharacterList(props) {
           />
         )
       }
-    </section>
+    </CoolSection>
   );
 }
