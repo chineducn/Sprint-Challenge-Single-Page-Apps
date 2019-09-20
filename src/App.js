@@ -8,6 +8,16 @@ import tailored from 'styled-components';
 const CoolNav = tailored.nav`
   display: flex;
   justify-content: space-around;
+
+  .pageLink {
+    color: orange;
+    text-decoration: none;
+  }
+
+  .activePage {
+    color: red;
+    font-style: italic;    
+  }
 `
 
 export default function App() {
@@ -17,8 +27,8 @@ export default function App() {
     <main>
       <Header />
       <CoolNav>
-        <NavLink to='/'>Welcome</NavLink>
-        <NavLink to='/characters'>Characters</NavLink>        
+        <NavLink className='pageLink' exact activeClassName='activePage' to='/'>Welcome</NavLink>
+        <NavLink className='pageLink' activeClassName='activePage' to='/characters'>Characters</NavLink>        
       </CoolNav>
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' component={CharacterList} />

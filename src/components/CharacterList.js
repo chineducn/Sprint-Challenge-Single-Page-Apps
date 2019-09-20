@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import messenger from 'axios';
 import CharacterCard from "./CharacterCard";
 import tailored from 'styled-components';
+import SearchForm from './SearchForm';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
@@ -29,18 +30,21 @@ export default function CharacterList(props) {
   }, []);
 
   return (
-    <CoolSection className="character-list">
-      {
-        charactersState.map(character =>
-          <CharacterCard
-            key={character.id}
-            name={character.name}
-            gender={character.gender}
-            species={character.species}
-            url={character.url}
-          />
-        )
-      }
-    </CoolSection>
+    <>
+      <SearchForm />
+      <CoolSection className="character-list">
+        {
+          charactersState.map(character =>
+            <CharacterCard
+              key={character.id}
+              name={character.name}
+              gender={character.gender}
+              species={character.species}
+              url={character.url}
+            />
+          )
+        }
+      </CoolSection>
+    </>
   );
 }
