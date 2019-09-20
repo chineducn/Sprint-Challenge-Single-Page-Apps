@@ -8,7 +8,7 @@ import { Formik } from 'formik';
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
   const [charactersState, setCharacters] = useState([]);
-  // const [searchState, setSearch] = useState('');
+  const [searchState, setSearch] = useState();
   const initialSearch = '';
 
   const performSearch = (formValues, actions) => {
