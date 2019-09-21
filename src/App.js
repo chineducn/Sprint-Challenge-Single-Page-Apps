@@ -31,7 +31,6 @@ export default function App() {
       <CoolNav>
         <NavLink className='pageLink' exact activeClassName='activePage' to='/'>Welcome</NavLink>
         <NavLink className='pageLink' activeClassName='activePage' to='/characters'>Characters</NavLink>
-        <NavLink className='pageLink' activeClassName='activePage' to='/search'>Search Character</NavLink>
       </CoolNav>
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' component={CharacterList} />

@@ -15,7 +15,6 @@ export default function CharacterList(props) {
   const performSearch = () => {
     const resultsClone = [...charactersState];
     console.log(resultsClone);
-    // setResult(resultsClone);
     setResult(resultsClone.filter(character => character.name.toLowerCase().includes(formState.toLowerCase())));
     setForm(initialSearch);
   }
@@ -45,7 +44,6 @@ export default function CharacterList(props) {
       .then(yesPlease => {
         setCharacters(yesPlease.data.results);
         setResult(yesPlease.data.results);
-        // debugger
       })
       .catch(hellNo => {
 
