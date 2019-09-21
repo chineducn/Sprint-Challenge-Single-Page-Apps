@@ -134,10 +134,11 @@ Complete search component to your list views.
 
 There are many ways to implement each of these requirements!
 
+copyMachine([1, 2, 3], 5000);
+copyMachine([1, 2, 3],  3);
 
 
-
-import React, { useEffect, useState } from "react";
+<!-- import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
 export default function CharacterList() {
@@ -167,4 +168,4 @@ export default function CharacterList() {
       <h2>TODO: `array.map()` over your state here!</h2>
     </section>
   );
-}
+} -->

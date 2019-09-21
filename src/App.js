@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./components/Header.js";
 import WelcomePage from './components/WelcomePage';
 import CharacterList from './components/CharacterList';
-import SearchForm from './components/SearchForm';
 import { Route, NavLink } from 'react-router-dom';
 import tailored from 'styled-components';
 
@@ -18,7 +17,8 @@ const CoolNav = tailored.nav`
 
   .activePage {
     color: red;
-    font-style: italic;    
+    font-style: italic;
+    text-decoration: underline;   
   }
 `
 
@@ -35,7 +35,9 @@ export default function App() {
       </CoolNav>
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' component={CharacterList} />
-      <Route path='/search' component={SearchForm} />
+      <Route path='/search' render={props => {
+       
+      }} />
     </main>
   );
 }

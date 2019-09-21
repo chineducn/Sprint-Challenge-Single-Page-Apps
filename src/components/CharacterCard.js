@@ -3,7 +3,7 @@ import tailored from 'styled-components';
 
 export default function CharacterCard(props) {
 
-  const { name, gender, species, url } = props;
+  const { name, gender, species, url, image } = props;
   const CoolDiv = tailored.div`
     border: 0.1rem solid;
     margin: 0.2rem;
@@ -24,6 +24,9 @@ export default function CharacterCard(props) {
 
   return (
     <CoolDiv>
+      <div>
+        <img src={image} alt=""/>
+      </div>
       <p><span>Name:</span> {name}</p>
       <p><span>Gender:</span> {gender}</p>
       <p><span>Species:</span> {species}</p>
