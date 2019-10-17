@@ -3,18 +3,30 @@ import messenger from 'axios';
 import CharacterCard from "./CharacterCard";
 import tailored from 'styled-components';
 import SearchForm from './SearchForm';
-import { Formik } from 'formik';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
-  const [charactersState, setCharacters] = useState([]);
-  // const [searchState, setSearch] = useState('');
   const initialSearch = '';
+  const [charactersState, setCharacters] = useState([]);
+  const [searchResultState, setResult] = useState([]);
+  const [formState, setForm] = useState(initialSearch);
+  
 
-  const performSearch = (formValues, actions) => {
-    console.log(formValues)
-    setCharacters(charactersState.filter(character => character.name === formValues.name))
-    actions.resetForm();
+  const performSearch = () => {
+    const resultsClone = [...charactersState];
+    console.log(resultsClone);
+    setResult(resultsClone.filter(character => character.name.toLowerCase().includes(formState.toLowerCase())));
+    setForm(initialSearch);
+  }
+
+  const onChange = evt => {
+    
+    setForm(evt.target.value);
+  }
+
+  const revealAll = (e) => {
+    e.preventDefault();
+    setResult(charactersState);
   }
 
   const CoolSection = tailored.section`
@@ -31,7 +43,7 @@ export default function CharacterList(props) {
     messenger.get(rickandmortyCharacterApi)
       .then(yesPlease => {
         setCharacters(yesPlease.data.results);
-        // debugger
+        setResult(yesPlease.data.results);
       })
       .catch(hellNo => {
 
@@ -44,11 +56,15 @@ export default function CharacterList(props) {
       <SearchForm
         initialValues={initialSearch}
         onSubmit={performSearch}
-      />
+        inputValue={formState}
+        onChange={onChange}
+        clickMe={revealAll}
+      />      
       <CoolSection className="character-list">
         {
-          charactersState.map(character =>
+          searchResultState.map(character =>
             <CharacterCard
+              image={character.image}
               key={character.id}
               name={character.name}
               gender={character.gender}

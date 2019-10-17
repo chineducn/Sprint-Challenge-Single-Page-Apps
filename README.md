@@ -78,8 +78,8 @@ _Add a Router to this application using [React Router](https://reacttraining.com
 
 _Add 'Search by Name' feature._
 
-- [ ]  Add the `<SearchForm />` component (see `./components/SearchForm.js`).
-- [ ]  Create a search form that will filter through the data displayed in the character list.
+- [x]  Add the `<SearchForm />` component (see `./components/SearchForm.js`).
+- [x]  Create a search form that will filter through the data displayed in the character list.
 
 ### **Required best practices:**
 
@@ -134,37 +134,3 @@ Complete search component to your list views.
 
 There are many ways to implement each of these requirements!
 
-
-
-
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
-
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
-
-  const [person, setPerson] = useState([])
-
-  
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-
-  useEffect(()=>{
-  
-    axios.get("https://rickandmortyapi.com/api/character"
-      )
-    .then(response=> {
-      setPerson(response.data.result)
-      
-    })
-    .catch(error=>{
-      
-    })
-  }, [])
-
-  return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
-  );
-}

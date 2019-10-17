@@ -5,6 +5,7 @@ import CharacterList from './components/CharacterList';
 import { Route, NavLink } from 'react-router-dom';
 import tailored from 'styled-components';
 
+
 const CoolNav = tailored.nav`
   display: flex;
   justify-content: space-around;
@@ -16,7 +17,8 @@ const CoolNav = tailored.nav`
 
   .activePage {
     color: red;
-    font-style: italic;    
+    font-style: italic;
+    text-decoration: underline;   
   }
 `
 
@@ -28,10 +30,13 @@ export default function App() {
       <Header />
       <CoolNav>
         <NavLink className='pageLink' exact activeClassName='activePage' to='/'>Welcome</NavLink>
-        <NavLink className='pageLink' activeClassName='activePage' to='/characters'>Characters</NavLink>        
+        <NavLink className='pageLink' activeClassName='activePage' to='/characters'>Characters</NavLink>
       </CoolNav>
       <Route exact path='/' component={WelcomePage} />
       <Route path='/characters' component={CharacterList} />
+      <Route path='/search' render={props => {
+       
+      }} />
     </main>
   );
 }
